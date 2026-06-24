@@ -1,322 +1,247 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>企业产品介绍</title>
+    <title>无锡恒业电热电器有限公司 - 产品介绍</title>
     <style>
         :root {
-            --primary: #1a73e8;
-            --primary-dark: #1557b0;
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --text: #1e293b;
-            --text-light: #64748b;
-            --border: #e2e8f0;
-            --shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,.08);
-            --radius: 12px;
+            --primary: #c41e3a; --primary-dark: #9b1630; --bg: #fafafa;
+            --card: #fff; --text: #1e293b; --text-light: #64748b;
+            --border: #e5e7eb; --shadow: 0 1px 3px rgba(0,0,0,.07);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,.1); --radius: 10px;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin:0; padding:0; box-sizing:border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.8;
         }
-
-        /* ===== Navbar ===== */
         .navbar {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            background: rgba(255,255,255,.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            padding: 0 24px; height: 64px;
-            display: flex; align-items: center; justify-content: space-between;
+            position:fixed; top:0; left:0; right:0; z-index:100;
+            background: rgba(255,255,255,.92); backdrop-filter: blur(10px);
+            border-bottom:1px solid var(--border); padding:0 24px; height:60px;
+            display:flex; align-items:center; justify-content:space-between;
         }
-        .navbar .logo {
-            font-size: 1.25rem; font-weight: 700; color: var(--primary);
-            text-decoration: none;
-        }
-        .navbar nav a {
-            margin-left: 32px; text-decoration: none; color: var(--text-light);
-            font-size: .95rem; transition: color .2s;
-        }
-        .navbar nav a:hover { color: var(--primary); }
+        .navbar .logo { font-size:1.1rem; font-weight:700; color:var(--primary); }
+        .navbar nav a { margin-left:24px; text-decoration:none; color:var(--text-light); font-size:.9rem; }
+        .navbar nav a:hover { color:var(--primary); }
 
-        /* ===== Hero ===== */
         .hero {
-            margin-top: 64px;
-            background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
-            color: #fff; text-align: center;
-            padding: 100px 24px 80px;
+            margin-top:60px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color:#fff; text-align:center; padding:80px 24px 60px;
         }
-        .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 16px; letter-spacing: 2px; }
-        .hero p { font-size: 1.2rem; opacity: .9; max-width: 600px; margin: 0 auto 32px; }
-        .hero .btn {
-            display: inline-block; background: #fff; color: var(--primary);
-            padding: 14px 40px; border-radius: 50px;
-            font-size: 1rem; font-weight: 600; text-decoration: none;
-            transition: transform .2s, box-shadow .2s;
-            box-shadow: 0 4px 15px rgba(0,0,0,.2);
+        .hero .badge {
+            display:inline-block; background:var(--primary); color:#fff;
+            font-size:.8rem; padding:4px 14px; border-radius:20px; margin-bottom:16px; letter-spacing:1px;
         }
-        .hero .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.3); }
-
-        /* ===== Sections ===== */
-        .section {
-            max-width: 1200px; margin: 0 auto; padding: 72px 24px;
-        }
-        .section-title {
-            text-align: center; font-size: 2rem; font-weight: 700;
-            margin-bottom: 8px; color: var(--text);
-        }
-        .section-subtitle {
-            text-align: center; color: var(--text-light); margin-bottom: 48px;
-            font-size: 1.05rem;
+        .hero h1 { font-size:2.4rem; font-weight:800; margin-bottom:12px; letter-spacing:2px; }
+        .hero .subtitle { font-size:1.1rem; opacity:.85; max-width:700px; margin:0 auto 20px; }
+        .hero .tags { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+        .hero .tag {
+            background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2);
+            padding:6px 16px; border-radius:20px; font-size:.85rem;
         }
 
-        /* ===== Product Cards ===== */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
+        .section { max-width:1100px; margin:0 auto; padding:60px 24px; }
+        .section-title { text-align:center; font-size:1.8rem; font-weight:700; margin-bottom:8px; }
+        .section-subtitle { text-align:center; color:var(--text-light); margin-bottom:40px; }
+
+        .about-grid { display:flex; gap:40px; flex-wrap:wrap; align-items:center; }
+        .about-text { flex:1; min-width:280px; }
+        .about-text p { color:var(--text-light); margin-bottom:12px; }
+        .about-stats { display:grid; grid-template-columns:repeat(auto-fit, minmax(120px,1fr)); gap:16px; margin-top:20px; }
+        .stat { text-align:center; background:var(--card); padding:16px 12px; border-radius:var(--radius); box-shadow:var(--shadow); }
+        .stat .num { font-size:1.8rem; font-weight:800; color:var(--primary); }
+        .stat .label { font-size:.8rem; color:var(--text-light); margin-top:4px; }
+
+        .milestones { display:flex; flex-direction:column; gap:20px; }
+        .milestone {
+            background:var(--card); border-left:4px solid var(--primary); padding:18px 24px;
+            border-radius:0 var(--radius) var(--radius) 0; box-shadow:var(--shadow);
         }
+        .milestone h4 { font-size:1rem; color:var(--primary); margin-bottom:4px; }
+        .milestone p { color:var(--text-light); font-size:.9rem; }
+
+        .products-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px; }
         .product-card {
-            background: var(--card-bg); border-radius: var(--radius);
-            box-shadow: var(--shadow); overflow: hidden;
-            transition: transform .2s, box-shadow .2s;
-            border: 1px solid var(--border);
+            background:var(--card); border-radius:var(--radius); padding:24px;
+            box-shadow:var(--shadow); border:1px solid var(--border); transition:transform .2s,box-shadow .2s;
         }
-        .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-        .product-card .img-placeholder {
-            height: 220px;
-            background: linear-gradient(135deg, #e8f0fe, #d2e3fc);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 3rem;
-        }
-        .product-card .card-body { padding: 24px; }
-        .product-card .card-body h3 {
-            font-size: 1.25rem; margin-bottom: 8px; color: var(--text);
-        }
-        .product-card .card-body p {
-            color: var(--text-light); font-size: .95rem; margin-bottom: 12px;
-        }
-        .product-card .tag {
-            display: inline-block; background: #e8f0fe; color: var(--primary);
-            font-size: .8rem; padding: 4px 12px; border-radius: 20px;
-            margin-right: 8px; margin-bottom: 6px;
-        }
+        .product-card:hover { transform:translateY(-2px); box-shadow:var(--shadow-lg); }
+        .product-card .icon { font-size:2rem; margin-bottom:10px; }
+        .product-card h4 { font-size:1.05rem; margin-bottom:6px; }
+        .product-card p { color:var(--text-light); font-size:.9rem; }
 
-        /* ===== Features ===== */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-        }
-        .feature-item {
-            text-align: center; padding: 32px 20px;
-            background: var(--card-bg); border-radius: var(--radius);
-            box-shadow: var(--shadow); border: 1px solid var(--border);
-        }
-        .feature-item .icon { font-size: 2.5rem; margin-bottom: 12px; }
-        .feature-item h4 { font-size: 1.1rem; margin-bottom: 8px; }
-        .feature-item p { color: var(--text-light); font-size: .9rem; }
-
-        /* ===== About ===== */
-        .about-content {
-            display: flex; gap: 48px; align-items: center; flex-wrap: wrap;
-        }
-        .about-text { flex: 1; min-width: 280px; }
-        .about-text h3 { font-size: 1.5rem; margin-bottom: 16px; }
-        .about-text p { color: var(--text-light); margin-bottom: 12px; }
-        .about-stats { display: flex; gap: 32px; flex-wrap: wrap; }
-        .stat-item { text-align: center; }
-        .stat-item .num { font-size: 2rem; font-weight: 800; color: var(--primary); }
-        .stat-item .label { font-size: .85rem; color: var(--text-light); }
-
-        /* ===== Contact ===== */
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .contact-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:20px; }
         .contact-card {
-            background: var(--card-bg); border-radius: var(--radius);
-            box-shadow: var(--shadow); border: 1px solid var(--border);
-            padding: 28px; text-align: center;
+            background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
+            border:1px solid var(--border); padding:24px; text-align:center;
         }
-        .contact-card .icon { font-size: 2rem; margin-bottom: 12px; }
-        .contact-card h4 { margin-bottom: 8px; }
-        .contact-card p { color: var(--text-light); font-size: .95rem; }
+        .contact-card .icon { font-size:1.8rem; margin-bottom:8px; }
+        .contact-card h4 { font-size:1rem; margin-bottom:6px; }
+        .contact-card p { color:var(--text-light); font-size:.9rem; }
 
-        /* ===== Footer ===== */
         footer {
-            background: var(--text); color: #94a3b8; text-align: center;
-            padding: 32px 24px; font-size: .9rem; margin-top: 48px;
+            background:#1a1a2e; color:#94a3b8; text-align:center;
+            padding:28px 24px; font-size:.85rem; margin-top:40px;
         }
-        footer a { color: #94a3b8; text-decoration: none; }
-        footer a:hover { color: #fff; }
 
-        /* ===== Responsive ===== */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .hero { padding: 72px 20px 56px; }
-            .navbar nav { display: none; }
-            .about-content { flex-direction: column; }
+        @media (max-width:768px) {
+            .hero h1 { font-size:1.7rem; }
+            .navbar nav { display:none; }
         }
     </style>
 </head>
 <body>
 
-<!-- Navbar -->
 <header class="navbar">
-    <a href="#" class="logo">🏢 企业名称</a>
+    <span class="logo">恒业电热电器</span>
     <nav>
-        <a href="#products">产品中心</a>
-        <a href="#features">核心优势</a>
         <a href="#about">关于我们</a>
+        <a href="#milestones">重点项目</a>
+        <a href="#products">产品中心</a>
         <a href="#contact">联系我们</a>
     </nav>
 </header>
 
-<!-- Hero -->
 <section class="hero">
-    <h1>创新科技 · 品质为先</h1>
-    <p>专注为客户提供高品质产品与解决方案，用技术驱动产业升级，以服务赢得客户信赖。</p>
-    <a href="#products" class="btn">了解我们的产品</a>
+    <div class="badge">高新技术企业 · 专精特新小巨人</div>
+    <h1>无锡恒业电热电器有限公司</h1>
+    <p class="subtitle">1996 年成立，专注特种电加热与热工装备研发制造，为军工科研、航空航天、新能源等领域提供非标定制热工解决方案</p>
+    <div class="tags">
+        <span class="tag">🏭 30年行业积淀</span>
+        <span class="tag">🔬 研发占比40%</span>
+        <span class="tag">👥 165名员工</span>
+        <span class="tag">📐 近百项专利</span>
+        <span class="tag">⚡ 总装机近1000MW</span>
+    </div>
 </section>
 
-<!-- Products -->
+<section class="section" id="about">
+    <h2 class="section-title">关于恒业</h2>
+    <p class="section-subtitle">深耕热工领域三十年，以技术驱动产业升级</p>
+    <div class="about-grid">
+        <div class="about-text">
+            <p>无锡恒业电热电器有限公司成立于<strong>1996年</strong>，是国家级<strong>高新技术企业</strong>、<strong>专精特新小巨人企业</strong>，现有职工165人，其中研发及设计人员占比约40%。</p>
+            <p>2025年研发部获评<strong>"江苏省级劳模创新工作室"</strong>。公司拥有自备仿真分析工作室，具备从设计仿真到制造交付的全链路自主能力。</p>
+            <p>近年来已为军工科研领域研制非标装备<strong>300余台/套</strong>，总装机容量近<strong>1000MW</strong>，研制成功率达100%，形成专利近百项。</p>
+            <div class="about-stats">
+                <div class="stat"><div class="num">1996</div><div class="label">成立年份</div></div>
+                <div class="stat"><div class="num">165</div><div class="label">在职员工</div></div>
+                <div class="stat"><div class="num">40%</div><div class="label">研发占比</div></div>
+                <div class="stat"><div class="num">300+</div><div class="label">非标装备</div></div>
+                <div class="stat"><div class="num">1000MW</div><div class="label">总装机容量</div></div>
+                <div class="stat"><div class="num">100%</div><div class="label">研制成功率</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="milestones">
+    <h2 class="section-title">国家重点项目 · 从0到1的突破</h2>
+    <p class="section-subtitle">多项技术指标创国内纪录，填补行业空白</p>
+    <div class="milestones">
+        <div class="milestone">
+            <h4>🔥 国内最高压力和流量蓄热式加热器</h4>
+            <p>流量800kg/s · 设计压力37MPa · 蓄热温度550℃</p>
+        </div>
+        <div class="milestone">
+            <h4>🔥 国内较高工作温度纯净空气电加热器</h4>
+            <p>流量24kg/s · 工作压力5.5MPa · 工作温度1273K</p>
+        </div>
+        <div class="milestone">
+            <h4>🔥 国内较高工作温度蓄热式电加热器</h4>
+            <p>流量52.6kg/s · 设计压力18MPa · 蓄热温度1273K</p>
+        </div>
+        <div class="milestone">
+            <h4>🏗️ 国内较大单体重量电加热器</h4>
+            <p>单台重约400吨</p>
+        </div>
+        <div class="milestone">
+            <h4>⚡ 国内在建较大加热功率和体积电加热器</h4>
+            <p>加热功率80MW · 流量5364kg/s · 温度377℃</p>
+        </div>
+        <div class="milestone">
+            <h4>💧 国内较高温度氢气电加热器</h4>
+            <p>流量18kg/h · 工作压力10kPa · 工作温度1273K</p>
+        </div>
+        <div class="milestone">
+            <h4>✈️ 国内首套大功率航空煤油加热系统</h4>
+            <p>无汽化与结焦、快速响应 · 共5套 · 总功率5900kW</p>
+        </div>
+        <div class="milestone">
+            <h4>🔩 高精度高温高压比例调节阀</h4>
+            <p>流量0.5kg/s · 工作压力10MPa · 工作温度1273K</p>
+        </div>
+        <div class="milestone">
+            <h4>🌡️ 国内较高温度微通道换热器</h4>
+            <p>工作温度1223K · 工作压力10MPa</p>
+        </div>
+    </div>
+</section>
+
 <section class="section" id="products">
-    <h2 class="section-title">产品中心</h2>
-    <p class="section-subtitle">精选优质产品，满足多样化需求</p>
+    <h2 class="section-title">核心产品与能力</h2>
+    <p class="section-subtitle">非标定制 · 军工品质 · 全链路交付</p>
     <div class="products-grid">
         <div class="product-card">
-            <div class="img-placeholder" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);">🖥️</div>
-            <div class="card-body">
-                <h3>智能终端设备</h3>
-                <p>高性能嵌入式智能终端，支持多场景工业应用，稳定可靠、部署灵活。</p>
-                <span class="tag">工业级</span><span class="tag">物联网</span><span class="tag">嵌入式</span>
-            </div>
+            <div class="icon">⚡</div>
+            <h4>特种电加热器</h4>
+            <p>蓄热式、直热式各类非标电加热器，覆盖高温、高压、大流量等极端工况，功率范围涵盖kW至80MW级。</p>
         </div>
         <div class="product-card">
-            <div class="img-placeholder" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);">🔧</div>
-            <div class="card-body">
-                <h3>精密机械零部件</h3>
-                <p>CNC高精度加工，严格品控体系，为汽车、航空及高端制造提供核心部件。</p>
-                <span class="tag">精密加工</span><span class="tag">CNC</span><span class="tag">高精度</span>
-            </div>
+            <div class="icon">🔄</div>
+            <h4>微通道换热器</h4>
+            <p>耐高温高压紧凑式换热器，工作温度可达1223K，满足航空航天及军工特殊需求。</p>
         </div>
         <div class="product-card">
-            <div class="img-placeholder" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);">📡</div>
-            <div class="card-body">
-                <h3>工业传感与控制系统</h3>
-                <p>自主研发传感器模组与智能控制方案，适配多种工业协议，轻松集成现有产线。</p>
-                <span class="tag">传感器</span><span class="tag">工业控制</span><span class="tag">IoT</span>
-            </div>
+            <div class="icon">🔧</div>
+            <h4>高温高压调节阀</h4>
+            <p>高精度比例调节阀，耐温1273K、耐压10MPa，适用于严苛工况下的流量精确控制。</p>
         </div>
         <div class="product-card">
-            <div class="img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);">⚡</div>
-            <div class="card-body">
-                <h3>新能源配套产品</h3>
-                <p>光伏逆变器、储能电池管理系统（BMS），助力绿色能源转型与碳中和目标。</p>
-                <span class="tag">新能源</span><span class="tag">BMS</span><span class="tag">绿色能源</span>
-            </div>
+            <div class="icon">✈️</div>
+            <h4>航空煤油加热系统</h4>
+            <p>大功率、无汽化、无结焦、快速响应，已成功交付国内首套5900kW级系统。</p>
         </div>
         <div class="product-card">
-            <div class="img-placeholder" style="background:linear-gradient(135deg,#ede7f6,#d1c4e9);">📦</div>
-            <div class="card-body">
-                <h3>智能包装解决方案</h3>
-                <p>全自动包装流水线，集成视觉检测与智能分拣，提升效率降低人工成本。</p>
-                <span class="tag">自动化</span><span class="tag">视觉检测</span><span class="tag">包装</span>
-            </div>
+            <div class="icon">💧</div>
+            <h4>氢气电加热器</h4>
+            <p>高温（1273K）氢气介质加热，适用于氢能及清洁能源领域。</p>
         </div>
         <div class="product-card">
-            <div class="img-placeholder" style="background:linear-gradient(135deg,#e0f7fa,#b2ebf2);">🔬</div>
-            <div class="card-body">
-                <h3>实验室分析仪器</h3>
-                <p>高精度光谱分析仪、环境监测设备，广泛应用于科研院所及第三方检测机构。</p>
-                <span class="tag">分析仪器</span><span class="tag">光谱</span><span class="tag">科研</span>
-            </div>
+            <div class="icon">📐</div>
+            <h4>非标热工装备定制</h4>
+            <p>从仿真分析、方案设计到制造交付，提供全生命周期技术服务和总包能力。</p>
         </div>
     </div>
 </section>
 
-<!-- Features -->
-<section class="section" id="features">
-    <h2 class="section-title">核心优势</h2>
-    <p class="section-subtitle">为什么选择我们</p>
-    <div class="features-grid">
-        <div class="feature-item">
-            <div class="icon">🏭</div>
-            <h4>自有工厂 · 源头直供</h4>
-            <p>数万平米生产基地，从研发到生产全链路自主掌控，去除中间环节，价格更具竞争力。</p>
-        </div>
-        <div class="feature-item">
-            <div class="icon">✅</div>
-            <h4>严格品控 · 国际认证</h4>
-            <p>通过ISO9001、CE、RoHS等多项认证，每批次产品经过严格质检，确保交付品质。</p>
-        </div>
-        <div class="feature-item">
-            <div class="icon">🚀</div>
-            <h4>快速响应 · 48小时出货</h4>
-            <p>常备库存覆盖主流型号，支持小批量定制，订单确认后48小时内完成发货。</p>
-        </div>
-        <div class="feature-item">
-            <div class="icon">🤝</div>
-            <h4>专业团队 · 全程服务</h4>
-            <p>技术工程师一对一对接，从选型到售后提供全周期技术支持，解决您的后顾之忧。</p>
-        </div>
-    </div>
-</section>
-
-<!-- About -->
-<section class="section" id="about">
-    <h2 class="section-title">关于我们</h2>
-    <p class="section-subtitle">十余年行业深耕，服务超1000+企业客户</p>
-    <div class="about-content">
-        <div class="about-text">
-            <h3>专注智能装备与工业自动化领域</h3>
-            <p>公司成立于2010年，总部位于长三角经济圈核心城市，是一家集研发、生产、销售、服务于一体的高新技术企业。</p>
-            <p>我们始终坚持"技术驱动、品质为本"的经营理念，每年投入营收的8%用于研发创新，拥有多项发明专利与软件著作权。产品远销欧美、东南亚等30多个国家和地区。</p>
-            <div class="about-stats">
-                <div class="stat-item"><div class="num">15+</div><div class="label">年行业经验</div></div>
-                <div class="stat-item"><div class="num">1000+</div><div class="label">服务企业</div></div>
-                <div class="stat-item"><div class="num">50+</div><div class="label">专利技术</div></div>
-                <div class="stat-item"><div class="num">30+</div><div class="label">出口国家</div></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Contact -->
 <section class="section" id="contact">
     <h2 class="section-title">联系我们</h2>
-    <p class="section-subtitle">期待与您合作共赢</p>
+    <p class="section-subtitle">期待与您合作，共创共赢</p>
     <div class="contact-grid">
         <div class="contact-card">
             <div class="icon">📞</div>
-            <h4>电话咨询</h4>
-            <p>400-XXX-XXXX</p>
-            <p style="font-size:.85rem;">工作日 9:00-18:00</p>
+            <h4>联系电话</h4>
+            <p>17365335333</p>
+            <p style="font-size:.8rem;">赵先生</p>
         </div>
         <div class="contact-card">
             <div class="icon">📧</div>
             <h4>电子邮箱</h4>
-            <p>sales@company.com</p>
-            <p style="font-size:.85rem;">24小时内回复</p>
+            <p>103556537@qq.com</p>
         </div>
         <div class="contact-card">
             <div class="icon">📍</div>
             <h4>公司地址</h4>
-            <p>XX省XX市XX区XX路XX号</p>
-            <p style="font-size:.85rem;">欢迎莅临参观指导</p>
+            <p>江苏省无锡市滨湖区胡埭工业园西拓区陆藕路38号</p>
         </div>
     </div>
 </section>
 
-<!-- Footer -->
 <footer>
-    <p>© 2026 企业名称. All rights reserved. | <a href="#">ICP备案号</a></p>
+    <p>© 2026 无锡恒业电热电器有限公司 | 高新技术企业 · 专精特新小巨人企业</p>
 </footer>
 
 </body>
