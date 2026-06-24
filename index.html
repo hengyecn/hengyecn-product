@@ -1,306 +1,167 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>无锡恒业电热电器有限公司</title>
-    <style>
-        :root {
-            --primary: #b71c1c; --primary-dark: #8b0000;
-            --bg: #f5f5f5; --card: #fff; --text: #1e293b;
-            --text-light: #64748b; --border: #e0e0e0;
-            --shadow: 0 1px 3px rgba(0,0,0,.06);
-            --shadow-lg: 0 6px 20px rgba(0,0,0,.08);
-            --radius: 8px;
-        }
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
-            background: var(--bg); color: var(--text); line-height: 1.8;
-        }
-
-        .navbar {
-            position:fixed; top:0; left:0; right:0; z-index:100;
-            background: rgba(255,255,255,.95); backdrop-filter: blur(10px);
-            border-bottom:1px solid var(--border); padding:0 24px; height:56px;
-            display:flex; align-items:center; justify-content:space-between;
-        }
-        .navbar .logo { font-size:1rem; font-weight:700; color:var(--primary); }
-        .navbar nav a { margin-left:20px; text-decoration:none; color:var(--text-light); font-size:.85rem; }
-        .navbar nav a:hover { color:var(--primary); }
-
-        .hero {
-            margin-top:56px; background: linear-gradient(160deg, #1a1a2e 0%, #1a0a0a 100%);
-            color:#fff; text-align:center; padding:50px 24px 40px;
-        }
-        .hero .logo-img { width:100px; margin-bottom:16px; }
-        .hero h1 { font-size:2rem; font-weight:800; margin-bottom:8px; letter-spacing:2px; }
-        .hero .subtitle { font-size:1rem; opacity:.85; max-width:650px; margin:0 auto 16px; }
-        .hero .tags { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
-        .hero .tag {
-            background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18);
-            padding:5px 14px; border-radius:20px; font-size:.8rem;
-        }
-
-        .section { max-width:1100px; margin:0 auto; padding:48px 20px; }
-        .section-title {
-            text-align:center; font-size:1.6rem; font-weight:700; margin-bottom:4px;
-            position:relative;
-        }
-        .section-title::after {
-            content:''; display:block; width:40px; height:3px; background:var(--primary);
-            margin:10px auto 0; border-radius:2px;
-        }
-        .section-subtitle { text-align:center; color:var(--text-light); margin:12px 0 36px; font-size:.9rem; }
-
-        .about-grid { display:flex; gap:32px; flex-wrap:wrap; align-items:flex-start; }
-        .about-text { flex:1; min-width:280px; }
-        .about-text p { color:var(--text-light); margin-bottom:10px; font-size:.92rem; }
-        .about-img { flex:0 0 400px; max-width:100%; }
-        .about-img img { width:100%; border-radius:var(--radius); box-shadow:var(--shadow); }
-        .about-stats { display:grid; grid-template-columns:repeat(auto-fit, minmax(100px,1fr)); gap:12px; margin-top:16px; }
-        .stat { text-align:center; background:var(--card); padding:14px 10px; border-radius:var(--radius); box-shadow:var(--shadow); }
-        .stat .num { font-size:1.5rem; font-weight:800; color:var(--primary); }
-        .stat .label { font-size:.75rem; color:var(--text-light); margin-top:2px; }
-
-        .milestones { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:16px; }
-        .milestone {
-            background:var(--card); border-radius:var(--radius); overflow:hidden;
-            box-shadow:var(--shadow); border:1px solid var(--border); transition:transform .2s;
-        }
-        .milestone:hover { transform:translateY(-2px); box-shadow:var(--shadow-lg); }
-        .milestone img { width:100%; height:200px; object-fit:cover; display:block; }
-        .milestone .body { padding:16px; }
-        .milestone .body h4 { font-size:.95rem; color:var(--primary); margin-bottom:4px; }
-        .milestone .body p { color:var(--text-light); font-size:.85rem; }
-
-        .products-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; }
-        .product-card {
-            background:var(--card); border-radius:var(--radius); overflow:hidden;
-            box-shadow:var(--shadow); border:1px solid var(--border); transition:transform .2s;
-        }
-        .product-card:hover { transform:translateY(-2px); box-shadow:var(--shadow-lg); }
-        .product-card img { width:100%; height:180px; object-fit:cover; display:block; }
-        .product-card .body { padding:18px; }
-        .product-card .body h4 { font-size:.95rem; margin-bottom:4px; }
-        .product-card .body p { color:var(--text-light); font-size:.85rem; }
-
-        .contact-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:16px; }
-        .contact-card {
-            background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
-            border:1px solid var(--border); padding:20px; text-align:center;
-        }
-        .contact-card h4 { font-size:.9rem; margin-bottom:6px; color:var(--text); }
-        .contact-card p { color:var(--text-light); font-size:.85rem; }
-
-        .full-img { width:100%; border-radius:var(--radius); box-shadow:var(--shadow); margin-top:8px; }
-
-        footer {
-            background:#1a1a2e; color:#94a3b8; text-align:center;
-            padding:24px; font-size:.8rem; margin-top:32px;
-        }
-
-        @media (max-width:768px) {
-            .hero h1 { font-size:1.5rem; }
-            .hero .subtitle { font-size:.9rem; }
-            .navbar nav { display:none; }
-            .about-img { flex:0 0 100%; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>无锡恒业电热电器有限公司 - 产品介绍</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: #333; background: #f5f7fa; line-height: 1.6;
+    }
+    .hero {
+      background: linear-gradient(135deg, #1a2a6c, #2c3e50, #0d1b3e);
+      color: white; text-align: center; padding: 40px 20px 50px;
+    }
+    .hero-logo { width: 120px; height: auto; margin-bottom: 16px; border-radius: 12px; background: white; padding: 8px; }
+    .hero h1 { font-size: 28px; font-weight: 700; letter-spacing: 4px; margin-bottom: 8px; }
+    .hero .subtitle { font-size: 14px; opacity: 0.85; letter-spacing: 2px; }
+    .hero .badges { margin-top: 16px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .badge {
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+      padding: 6px 18px; border-radius: 20px; font-size: 13px; letter-spacing: 1px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+    section { padding: 40px 0; }
+    .section-title { text-align: center; font-size: 24px; font-weight: 700; color: #1a2a6c; margin-bottom: 8px; letter-spacing: 2px; }
+    .section-divider { width: 50px; height: 3px; background: #ff6b35; margin: 0 auto 30px; border-radius: 2px; }
+    .intro-card { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 20px; }
+    .intro-card p { margin-bottom: 12px; font-size: 15px; color: #555; }
+    .stats { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 16px; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; }
+    .stat-item { text-align: center; }
+    .stat-num { font-size: 28px; font-weight: 700; color: #ff6b35; }
+    .stat-label { font-size: 12px; color: #999; margin-top: 4px; }
+    .milestone-list { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .milestone-item { padding: 14px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; color: #444; display: flex; align-items: flex-start; gap: 12px; }
+    .milestone-item:last-child { border-bottom: none; }
+    .milestone-dot { width: 8px; height: 8px; border-radius: 50%; background: #ff6b35; flex-shrink: 0; margin-top: 6px; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+    .gallery-card {
+      background: white; border-radius: 10px; overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .gallery-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+    .gallery-card img { width: 100%; height: 180px; object-fit: cover; display: block; }
+    .gallery-card .caption { padding: 12px 14px; font-size: 13px; color: #555; text-align: center; }
+    .featured-img { width: 100%; border-radius: 10px; margin-bottom: 20px; }
+    .contact-section { background: linear-gradient(135deg, #1a2a6c, #2c3e50); color: white; text-align: center; padding: 50px 20px; }
+    .contact-section .section-title { color: white; }
+    .contact-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 24px; }
+    .contact-item { font-size: 15px; }
+    .contact-label { opacity: 0.7; font-size: 13px; }
+    footer { background: #0d1b3e; color: rgba(255,255,255,0.5); text-align: center; padding: 20px; font-size: 12px; }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 22px; }
+      .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+      .gallery-card img { height: 140px; }
+    }
+  </style>
 </head>
 <body>
-
-<header class="navbar">
-    <span class="logo">无锡恒业电热电器</span>
-    <nav>
-        <a href="#about">关于我们</a>
-        <a href="#milestones">重点项目</a>
-        <a href="#products">产品中心</a>
-        <a href="#contact">联系我们</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <img class="logo-img" src="images/logo.jpg" alt="恒业电热电器">
+  <header class="hero">
+    <img src="images/logo.jpg" alt="无锡恒业" class="hero-logo">
     <h1>无锡恒业电热电器有限公司</h1>
-    <p class="subtitle">1996年成立 · 高新技术企业 · 专精特新小巨人<br>专注特种电加热与热工装备研发制造，为军工科研、航空航天领域提供非标定制热工解决方案</p>
-    <div class="tags">
-        <span class="tag">30年行业积淀</span>
-        <span class="tag">研发占比40%</span>
-        <span class="tag">165名员工</span>
-        <span class="tag">近百项专利</span>
-        <span class="tag">总装机近1000MW</span>
-        <span class="tag">300+台/套非标装备</span>
+    <p class="subtitle">WUXI HENGYE ELECTRIC HEATING EQUIPMENT CO., LTD.</p>
+    <div class="badges">
+      <span class="badge">高新技术企业</span>
+      <span class="badge">专精特新小巨人企业</span>
+      <span class="badge">江苏省级劳模创新工作室</span>
     </div>
-</section>
-
-<section class="section" id="about">
-    <h2 class="section-title">关于恒业</h2>
-    <p class="section-subtitle">深耕热工领域三十年，以技术驱动产业升级</p>
-    <div class="about-grid">
-        <div class="about-text">
-            <p>无锡恒业电热电器有限公司成立于<strong>1996年</strong>，是国家级<strong>高新技术企业</strong>、<strong>专精特新小巨人企业</strong>，现有职工165人，其中研发及设计人员占比约40%。</p>
-            <p>2025年研发部获评<strong>"江苏省级劳模创新工作室"</strong>。公司拥有自备仿真分析工作室，具备从设计仿真到制造交付的全链路自主能力。</p>
-            <p>近年来已为军工科研领域研制非标装备<strong>300余台/套</strong>，总装机容量近<strong>1000MW</strong>，研制成功率达100%，形成专利近百项。</p>
-            <div class="about-stats">
-                <div class="stat"><div class="num">1996</div><div class="label">成立年份</div></div>
-                <div class="stat"><div class="num">165</div><div class="label">在职员工</div></div>
-                <div class="stat"><div class="num">40%</div><div class="label">研发占比</div></div>
-                <div class="stat"><div class="num">300+</div><div class="label">非标装备</div></div>
-                <div class="stat"><div class="num">1000MW</div><div class="label">总装机容量</div></div>
-                <div class="stat"><div class="num">100%</div><div class="label">研制成功率</div></div>
-            </div>
-        </div>
-        <div class="about-img">
-            <img src="images/building.jpg" alt="公司外景">
-        </div>
+  </header>
+  <section class="container">
+    <h2 class="section-title">公司简介</h2>
+    <div class="section-divider"></div>
+    <div class="intro-card">
+      <p>无锡恒业电热电器有限公司成立于1996年，是高新技术企业、专精特新小巨人企业。公司现有职工165人，其中研发及设计人员占比约40%。2025年研发部获评"江苏省级劳模创新工作室"。</p>
+      <p>近年来，公司已为军工科研领域研制非标装备300余台/套，总装机容量近1000MW，研制成功率达100%，形成专利近百项。公司拥有自备仿真分析工作室，具备强大的自主研发能力。</p>
+      <div class="stats">
+        <div class="stat-item"><div class="stat-num">1996<span style="font-size:14px">年</span></div><div class="stat-label">成立年份</div></div>
+        <div class="stat-item"><div class="stat-num">200<span style="font-size:14px">+</span></div><div class="stat-label">企业职工</div></div>
+        <div class="stat-item"><div class="stat-num">40<span style="font-size:14px">%</span></div><div class="stat-label">研发人员占比</div></div>
+        <div class="stat-item"><div class="stat-num">300<span style="font-size:14px">+</span></div><div class="stat-label">非标装备</div></div>
+        <div class="stat-item"><div class="stat-num">近100<span style="font-size:14px">项</span></div><div class="stat-label">专利技术</div></div>
+        <div class="stat-item"><div class="stat-num">1000<span style="font-size:14px">MW</span></div><div class="stat-label">总装机容量</div></div>
+      </div>
     </div>
-</section>
-
-<section class="section" id="milestones">
-    <h2 class="section-title">国家重点项目 · 从0到1的突破</h2>
-    <p class="section-subtitle">多项技术指标创国内纪录，填补行业空白</p>
-    <div class="milestones">
-        <div class="milestone">
-            <img src="images/FL-63.jpg" alt="FL-63">
-            <div class="body">
-                <h4>国内最高压力和流量蓄热式加热器</h4>
-                <p>流量800kg/s · 设计压力37MPa · 蓄热温度550℃</p>
-            </div>
-        </div>
-        <div class="milestone">
-            <img src="images/wind-tunnel.jpg" alt="高温风洞试验舱">
-            <div class="body">
-                <h4>国内较高工作温度纯净空气电加热器</h4>
-                <p>流量24kg/s · 工作压力5.5MPa · 工作温度1273K</p>
-            </div>
-        </div>
-        <div class="milestone">
-            <img src="images/ultra-heater.jpg" alt="超高温风洞加温器">
-            <div class="body">
-                <h4>国内较高工作温度蓄热式电加热器</h4>
-                <p>流量52.6kg/s · 设计压力18MPa · 蓄热温度1273K</p>
-            </div>
-        </div>
-        <div class="milestone">
-            <img src="images/FL-62.jpg" alt="FL-62">
-            <div class="body">
-                <h4>国内较大单体重量电加热器</h4>
-                <p>单台重约400吨</p>
-            </div>
-        </div>
-        <div class="milestone">
-            <img src="images/FL-64.jpg" alt="FL-64">
-            <div class="body">
-                <h4>国内在建较大加热功率和体积电加热器</h4>
-                <p>加热功率80MW · 流量5364kg/s · 温度377℃</p>
-            </div>
-        </div>
-        <div class="milestone">
-            <img src="images/ultra-heater-1.jpg" alt="超高温风洞加温器1">
-            <div class="body">
-                <h4>国内较高温度氢气电加热器</h4>
-                <p>流量18kg/h · 工作压力10kPa · 工作温度1273K</p>
-            </div>
-        </div>
-        <div class="milestone">
-            <img src="images/fuel-heater.jpg" alt="肮空燃油滑油加温器">
-            <div class="body">
-                <h4>国内首套大功率航空煤油加热系统</h4>
-                <p>无汽化与结焦、快速响应 · 共5套 · 总功率5900kW</p>
-            </div>
-        </div>
-        <div class="milestone">
-            <img src="images/ultra-heater-2.jpg" alt="超高温风洞加温器2">
-            <div class="body">
-                <h4>高精度高温高压比例调节阀</h4>
-                <p>流量0.5kg/s · 工作压力10MPa · 工作温度1273K</p>
-            </div>
-        </div>
-        <div class="milestone">
-            <img src="images/heat-exchanger.jpg" alt="平行流锻造微通道换热器">
-            <div class="body">
-                <h4>国内较高温度微通道换热器</h4>
-                <p>工作温度1223K · 工作压力10MPa</p>
-            </div>
-        </div>
+  </section>
+  <section class="container" style="padding-top:0">
+    <img src="images/building.jpg" alt="公司外景" class="featured-img">
+  </section>
+  <section class="container">
+    <h2 class="section-title">核心优势</h2>
+    <div class="section-divider"></div>
+    <p style="text-align:center;color:#666;margin-bottom:20px">研发能力强，拥有自备仿真分析工作室，已完成以下国家重点项目0-1的突破</p>
+    <div class="milestone-list">
+      <div class="milestone-item"><span class="milestone-dot"></span>已知国内<strong>最高压力和流量</strong>蓄热式加热器（流量800kg/s、设计压力37MPa、蓄热温度550℃）</div>
+      <div class="milestone-item"><span class="milestone-dot"></span>已知国内<strong>较高工作温度</strong>纯净空气电加热器（流量24kg/s、工作压力5.5MPa、工作温度1273K）</div>
+      <div class="milestone-item"><span class="milestone-dot"></span>已知国内<strong>较高工作温度</strong>蓄热式电加热器（流量52.6kg/s、设计压力18MPa、蓄热温度1273K）</div>
+      <div class="milestone-item"><span class="milestone-dot"></span>已知国内<strong>较大单体重量</strong>电加热器（单台重约400吨）</div>
+      <div class="milestone-item"><span class="milestone-dot"></span>已知国内在建<strong>较大加热功率和体积</strong>电加热器（加热功率80MW、流量5364kg/s、温度377℃）</div>
+      <div class="milestone-item"><span class="milestone-dot"></span>已知国内<strong>较高温度氢气</strong>电加热器（流量18kg/h、工作压力10kPa、工作温度1273K）</div>
+      <div class="milestone-item"><span class="milestone-dot"></span>已知国内首套<strong>大功率无汽化与结焦、快速响应</strong>航空煤油加热系统（共5套、总功率5900kW）</div>
+      <div class="milestone-item"><span class="milestone-dot"></span><strong>高精度高温高压</strong>比例调节阀（流量0.5kg/s、工作压力10MPa、工作温度1273K）</div>
+      <div class="milestone-item"><span class="milestone-dot"></span>已知国内<strong>较高温度</strong>微通道换热器（工作温度1223K、工作压力10MPa）</div>
     </div>
-</section>
-
-<section class="section" id="products">
-    <h2 class="section-title">核心产品与能力</h2>
-    <p class="section-subtitle">非标定制 · 军工品质 · 全链路交付</p>
-    <div class="products-grid">
-        <div class="product-card">
-            <img src="images/ultra-heater-3.jpg" alt="特种电加热器">
-            <div class="body">
-                <h4>特种电加热器</h4>
-                <p>蓄热式、直热式各类非标电加热器，覆盖高温、高压、大流量等极端工况，功率范围涵盖kW至80MW级。</p>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="images/heat-exchanger.jpg" alt="微通道换热器">
-            <div class="body">
-                <h4>微通道换热器</h4>
-                <p>耐高温高压紧凑式换热器，工作温度可达1223K，满足航空航天及军工特殊需求。</p>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="images/valve.jpg" alt="高温高压调节阀">
-            <div class="body">
-                <h4>高温高压调节阀</h4>
-                <p>高精度比例调节阀，耐温1273K、耐压10MPa，适用于严苛工况下的流量精确控制。</p>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="images/fuel-heater.jpg" alt="航空煤油加热系统">
-            <div class="body">
-                <h4>航空煤油加热系统</h4>
-                <p>大功率、无汽化、无结焦、快速响应，已成功交付国内首套5900kW级系统。</p>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="images/ultra-heater-1.jpg" alt="氢气电加热器">
-            <div class="body">
-                <h4>氢气电加热器</h4>
-                <p>高温（1273K）氢气介质加热，适用于氢能及清洁能源领域。</p>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="images/building.jpg" alt="非标热工装备">
-            <div class="body">
-                <h4>非标热工装备定制</h4>
-                <p>从仿真分析、方案设计到制造交付，提供全生命周期技术服务和总包能力。</p>
-            </div>
-        </div>
+  </section>
+  <section class="container">
+    <h2 class="section-title">风洞加温系统</h2>
+    <div class="section-divider"></div>
+    <div class="gallery-grid">
+      <div class="gallery-card"><img src="images/FL-62.jpg" alt="FL-62"><div class="caption">FL-62 风洞</div></div>
+      <div class="gallery-card"><img src="images/FL-63.jpg" alt="FL-63"><div class="caption">FL-63 风洞</div></div>
+      <div class="gallery-card"><img src="images/FL-64.jpg" alt="FL-64"><div class="caption">FL-64 风洞</div></div>
+      <div class="gallery-card"><img src="images/ultra-heater.jpg" alt="超高温风洞加温器"><div class="caption">超高温风洞加温器</div></div>
+      <div class="gallery-card"><img src="images/ultra-heater-1.jpg" alt="超高温风洞加温器"><div class="caption">超高温风洞加温器（一）</div></div>
+      <div class="gallery-card"><img src="images/ultra-heater-2.jpg" alt="超高温风洞加温器"><div class="caption">超高温风洞加温器（二）</div></div>
+      <div class="gallery-card"><img src="images/ultra-heater-3.jpg" alt="超高温风洞加温器"><div class="caption">超高温风洞加温器（三）</div></div>
+      <div class="gallery-card"><img src="images/wind-tunnel.jpg" alt="高温风洞试验舱"><div class="caption">高温风洞试验舱</div></div>
+      <div class="gallery-card"><img src="images/largest-wind-tunnel.jpg" alt="全球较大风洞"><div class="caption">全球较大风洞</div></div>
+      <div class="gallery-card"><img src="images/high-temp-test-chamber.jpg" alt="高温试验舱"><div class="caption">高温试验舱</div></div>
     </div>
-</section>
-
-<section class="section" id="contact">
+  </section>
+  <section class="container">
+    <h2 class="section-title">换热设备</h2>
+    <div class="section-divider"></div>
+    <div class="gallery-grid">
+      <div class="gallery-card"><img src="images/heat-exchanger.jpg" alt="平行流锻造微通道换热器"><div class="caption">平行流锻造微通道换热器</div></div>
+      <div class="gallery-card"><img src="images/microchannel-heat-exchanger.jpg" alt="微通道换热器"><div class="caption">微通道换热器</div></div>
+      <div class="gallery-card"><img src="images/microchannel-heat-exchanger-2.jpg" alt="微通道换热器二"><div class="caption">微通道换热器（二）</div></div>
+      <div class="gallery-card"><img src="images/micro-flow-heat-exchanger.jpg" alt="微小流量换热器"><div class="caption">微小流量换热器</div></div>
+    </div>
+  </section>
+  <section class="container">
+    <h2 class="section-title">特种加热设备</h2>
+    <div class="section-divider"></div>
+    <div class="gallery-grid">
+      <div class="gallery-card"><img src="images/fuel-heater.jpg" alt="航空燃油滑油加温器"><div class="caption">航空燃油滑油加温器</div></div>
+      <div class="gallery-card"><img src="images/valve.jpg" alt="高温阀门"><div class="caption">高温阀门</div></div>
+      <div class="gallery-card"><img src="images/ultra-valve.jpg" alt="超高温阀门"><div class="caption">超高温阀门</div></div>
+      <div class="gallery-card"><img src="images/modular-heater.jpg" alt="模块化高压电加热器"><div class="caption">模块化高压电加热器</div></div>
+    </div>
+  </section>
+  <section class="container">
+    <h2 class="section-title">国产化替代成果</h2>
+    <div class="section-divider"></div>
+    <div class="gallery-grid">
+      <div class="gallery-card"><img src="images/domestic-replacement.jpg" alt="某院国产化替代"><div class="caption">某院国产化替代项目</div></div>
+    </div>
+  </section>
+  <section class="contact-section">
     <h2 class="section-title">联系我们</h2>
-    <p class="section-subtitle">期待与您合作，共创共赢</p>
+    <div style="width:50px;height:3px;background:#ff6b35;margin:0 auto 30px;border-radius:2px"></div>
     <div class="contact-grid">
-        <div class="contact-card">
-            <h4>联系电话</h4>
-            <p>17365335333</p>
-            <p style="font-size:.75rem;color:#94a3b8;">赵先生</p>
-        </div>
-        <div class="contact-card">
-            <h4>电子邮箱</h4>
-            <p>103556537@qq.com</p>
-        </div>
-        <div class="contact-card">
-            <h4>公司地址</h4>
-            <p>江苏省无锡市滨湖区</p>
-            <p>胡埭工业园西拓区陆藕路38号</p>
-        </div>
+      <div class="contact-item">
+        <div><div class="contact-label">联系电话</div><div>17365335333（赵先生）</div></div>
+      </div>
+      <div class="contact-item">
+        <div><div class="contact-label">电子邮箱</div><div>103556537@qq.com</div></div>
+      </div>
+      <div class="contact-item">
+        <div><div class="contact-label">公司地址</div><div>江苏省无锡市滨湖区胡埭工业园西拓区陆藕路38号</div></div>
+      </div>
     </div>
-</section>
-
-<footer>
-    <p>© 2026 无锡恒业电热电器有限公司 | 高新技术企业 · 专精特新小巨人企业</p>
-</footer>
-
+  </section>
+  <footer>&copy; 2026 无锡恒业电热电器有限公司. All rights reserved.</footer>
 </body>
 </html>
-
